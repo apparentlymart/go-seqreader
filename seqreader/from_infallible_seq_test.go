@@ -11,6 +11,7 @@ import (
 func ExampleFromSeq() {
 	seq := slices.Values([]string{"hello", "world"})
 	r := seqreader.FromSeq(seq)
+	defer r.Close()
 
 	for {
 		s, err := r.ReadSeq()
